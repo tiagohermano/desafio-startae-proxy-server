@@ -26,4 +26,4 @@ app.use('/', async (req, res) => {
     res.send(data);
   });
 })
-app.listen(7777, () => console.log('SERVER RUNNING ON localhost:7777'));
+app.listen(80, () => console.log('SERVER RUNNING ON localhost:7777'));
