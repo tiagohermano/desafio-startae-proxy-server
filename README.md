@@ -3,9 +3,6 @@
 ### Live at
 [https://startae-challenge-proxy-server.herokuapp.com/](https://startae-challenge-proxy-server.herokuapp.com/)
 
-[https://startae-challenge-proxy-server.herokuapp.com/](https://github.com/tiagohermano/desafio-startae-proxy-server)
-
-
 ### Running project locally
 #### 1. install project's dependencies
 ```sh
