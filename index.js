@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use('/api', async (req, res) => {
+app.use('/', async (req, res) => {
   T.get('statuses/user_timeline', { screen_name: 'late4party', count: 5, trim_user: true, exclude_replies: true }, function(err, data, response) {
     res.send(data);
   });
