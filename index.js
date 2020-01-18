@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 
-var Twit = require('twit')
+var Twit = require('twit');
 
 var T = new Twit({
   consumer_key:         process.env.TWITTER_CONSUMER_KEY,
@@ -22,8 +22,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/', async (req, res) => {
-  T.get('statuses/user_timeline', { screen_name: 'late4party', count: 5, trim_user: true, exclude_replies: true }, function(err, data, response) {
+  const { username, tweetsAmount } = req.query;
+  T.get('statuses/user_timeline', { screen_name: username, count: tweetsAmount, trim_user: true, exclude_replies: true }, function(err, data, response) {
+    if(err) res.send(err);
     res.send(data);
   });
 })
-app.listen(process.env.PORT || 80, () => console.log('SERVER RUNNING ON localhost:7777'));
+app.listen(process.env.PORT || 7777, () => console.log('SERVER RUNNING ON localhost:7777'));
