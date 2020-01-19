@@ -21,16 +21,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use('/', (req, res) => {
-  res.send('Desafio Frontend Startae Proxy Server for Twitter API requests.');
-});
-
 app.use('/tweets/', async (req, res) => {
   const { username, tweetsAmount } = req.query;
   T.get('statuses/user_timeline', { screen_name: username, count: tweetsAmount, exclude_replies: true }, function(err, data, response) {
     if(err) return res.send(err);
     res.send(data);
   });
+});
+
+app.use('/', (req, res) => {
+  res.send('Desafio Frontend Startae Proxy Server for Twitter API requests.');
 });
 
 app.listen(process.env.PORT || 7777, () => console.log('SERVER RUNNING ON localhost:7777'));
